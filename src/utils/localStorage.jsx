@@ -21,3 +21,15 @@ const Employees=[
     "password":"123"
   }
 ]
+const admin=[
+  {
+    "id":1,
+    "email":"rahulheer344@gmailcom",
+    "password":"123456789"
+  },
+  {
+    "id":2,
+    "email":"rahulheer307@gmail.com",
+    "password":"123456789"
+  }
+]

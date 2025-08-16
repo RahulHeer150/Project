@@ -2,7 +2,7 @@ import React from 'react'
 
 const CompleteTask = () => {
   return (
-    <div>CompleteTask</div>
+    <div>CompleteTassk</div>
   )
 }
 
