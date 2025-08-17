@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 const Login = () => {
   const [email,setEmail] = useState('');
   const [password,setPassword]=useState('')
+  HandleLogin(email,password)
   const handlerSubmit=(e)=>{
     e.preventDefault();
     console.log("email is",email)
@@ -22,7 +23,7 @@ const Login = () => {
                   setEmail(e.target.value)
                 }}
                  required type="email"
-                  className=' text-xl text-black outline-none bg-transparent border-2 border-emerald-600  px-3 py-5 rounded-full placeholder:text-gray-400' placeholder='enter your email' />
+                  className=' text-xl text-gray-500 outline-none bg-transparent border-2 border-emerald-600  px-3 py-5 rounded-full placeholder:text-gray-400' placeholder='enter your email' />
                 <input 
                value={password}
                 onChange={(e)=>{
