@@ -1,6 +1,6 @@
 import React from 'react'
 
-const taskContext = ({children}) => {
+const TaskContext = ({children}) => {
   return (
     <div>
       {children}
@@ -8,4 +8,4 @@ const taskContext = ({children}) => {
   )
 }
 
-export default taskContext
+export default TaskContext
