@@ -1,9 +1,10 @@
-import React, { useEffect,useState } from 'react'
+import React, { useCallback, useEffect,useState,useContext } from 'react'
 import './index.css'
 import Login from '../src/components/Auth/Login';
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard';
 import AdminDashboard from './components/Dashboard/AdminDashboard';
 import { getLocalStorage, setLocalStorage } from './utils/localStorage';
+import { AuthContext } from './Context/AuthProvider';
 
 const App = () => {
 
@@ -11,10 +12,10 @@ const App = () => {
 
   const HandleLogin=(email,password)=>{
     if(email=="rahulheer344@gmail.com" && password=='123456789'){
-      console.log('hey!!! Admin')
+      console.log("admin")
     }
     else if(email=="simranjit@gmail.com"&& password=='123'){
-      console.log("hey new user");
+      console.log('employee')
 
     }
     else{
@@ -22,14 +23,14 @@ const App = () => {
     }
 
   }
+
+  const data=useContext(AuthContext)
+  console.log(data)
   HandleLogin("rahulheer344@gmail.com",123456789)
   return (
     <>
-   {/* <div className='bg-gray-800 h-screen w-screen text-white'>  */}
-      {/* <Login/> */}
-      {/* <AdminDashboard/> */}
-    {/* </div> */}
    {!User ? <Login HandleLogin={HandleLogin}/>: ''}
+   {User=='Admin' ? <AdminDashboard/>:<EmployeeDashboard/>}
 
     </>
   )
