@@ -3,6 +3,7 @@ import React from "react";
 const employees = [
   {
     id: 1,
+    name:"simranjit",
     email: "simran@gmail.com",
     password: "123",
     tasks: [
@@ -43,7 +44,8 @@ const employees = [
   },
   {
     id: 2,
-    email: "rahul@gmail.com",
+    name:"Ankita",
+    email: "ankita@gmail.com",
     password: "123",
     tasks: [
       {
@@ -72,7 +74,8 @@ const employees = [
   },
   {
     id: 3,
-    email: "sim@gmail.com",
+    name:"Rohit",
+    email: "rohit@gmail.com",
     password: "123",
     tasks: [
       {
@@ -112,6 +115,7 @@ const employees = [
   },
   {
     id: 4,
+    name:"Simar",
     email: "simranjit@gmail.com",
     password: "123",
     tasks: [
@@ -171,5 +175,3 @@ const admin=JSON.parse(localStorage.getItem('admin'))
 
 return {employees,admin}
 }
-
-//export { Employees, Admin };

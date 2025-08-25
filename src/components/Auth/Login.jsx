@@ -8,7 +8,7 @@ const Login = ({ HandleLogin }) => {
     e.preventDefault();
     console.log("email is", email);
     console.log("password is", password);
-
+    HandleLogin(email,password)
     setEmail("");
     setPassword("");
   };

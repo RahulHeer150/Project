@@ -9,40 +9,39 @@ import { AuthContext } from './Context/AuthProvider';
 const App = () => {
 
   const [User, setUser] = useState(null)
+  const [loggedInUserData,setLoggedInUserData]=useState(null)
   const authData=useContext(AuthContext)
-  useEffect(() => {
-     if(authData){
-      const loggedInUser=localStorage.getItem("loggedInUser")
-      if(loggedInUser){
-        setUser(loggedInUser.role)
-      }
-    }
+  // useEffect(() => {
+  //    if(authData){
+  //     const loggedInUser=localStorage.getItem("loggedInUser")
+  //     if(loggedInUser){
+  //       setUser(loggedInUser.role)
+  //     }
+  //   }
     
-  }, [authData])
+  // }, [authData])
   
   
 
-  const HandleLogin=(email,password)=>{
-    if(email=="rahulheer344@gmail.com" && password=='123456789'){
-      console.log("admin")
-      localStorage.setItem('loggedInUser',JSON.stringify({role:'admin'}))
-    }
-    else if(authData && authData.employees.find((e)=>email==e.email && e.password==password)){
-      console.log('employee')
-      localStorage.setItem('loggedInUser',JSON.stringify({role:'employee'}))
-
-
-    }
-    else{
-      console.log('invalid')
-    }
+  const handleLogin=(email,password)=>{
+    if(email==="rahulheer344@gmail.com" && password==='123456789'){
+      setUser({role:"admin"})
+      localStorage.setItem('loggedInUser',JSON.stringify({role:'admin', email}))
+    } else {
+      // Check for employee login
+      const employees = JSON.parse(localStorage.getItem('employees')) || [];
+      const foundEmployee = employees.find(emp => emp.email === email && emp.password === password);
+      if(foundEmployee){
+        setUser({role:"employee"})
+        localStorage.setItem('loggedInUser', JSON.stringify({role:'employee', ...foundEmployee}));
+      }
+  }
 
   }
-  HandleLogin()
   return (
     <>
-   {!User ? <Login HandleLogin={HandleLogin}/>: ''}
-   {User=='Admin' ? <AdminDashboard/>:<EmployeeDashboard/>}
+   {!User ? <Login HandleLogin={handleLogin}/> : ''}
+   {User?.role === 'admin' ? <AdminDashboard/> : (User?.role === 'employee' ? <EmployeeDashboard data={loggedInUserData}/> : '')}
 
     </>
   )
