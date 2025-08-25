@@ -8,9 +8,6 @@ import AuthProvider from './Context/AuthProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <AuthProvider>
-   <TaskContext>
     <App />
-   </TaskContext>
-    
   </AuthProvider>,
 )
