@@ -1,6 +1,6 @@
 import React from "react";
 
-const Employees = [
+const employees = [
   {
     id: 1,
     email: "simran@gmail.com",
@@ -152,25 +152,24 @@ const Employees = [
   },
 ];
 
-const Admins = [
+const admin = [
   {
-    id: 1,
-    email: "rahulheer344@gmail.com",
-    password: "123456789",
+    "id": 1,
+    "email": "rahulheer344@gmail.com",
+    "password": "123456789"
   }
 ];
 export const setLocalStorage = () => {
-  localStorage.setItem('Employees',JSON.stringify(Employees))
-  localStorage.setLocalStorage('Admin',JSON.stringify(Admins))
-
+  localStorage.setItem('employees',JSON.stringify(employees));
+  localStorage.setItem('admin',JSON.stringify(admin));
+  
 }
 
 export const getLocalStorage = () => {
-const Employees= JSON.parse(localStorage.getItem('Employees'))
-const Admins=JSON.parse(localStorage.getItem('Admins'))
+const employees= JSON.parse(localStorage.getItem('employees'))
+const admin=JSON.parse(localStorage.getItem('admin'))
 
-console.log(Admins,Employees)
-
+return {employees,admin}
 }
 
-export { Employees, Admins };
+//export { Employees, Admin };

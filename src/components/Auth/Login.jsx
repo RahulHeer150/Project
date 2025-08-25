@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Login = ({ HandleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  
   const handlerSubmit = (e) => {
     e.preventDefault();
     console.log("email is", email);
