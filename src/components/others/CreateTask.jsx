@@ -52,7 +52,7 @@ const CreateTask = () => {
                             onChange={(e) => {
                                 setTaskTitle(e.target.value)
                             }}
-                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4' type="text" placeholder='Make a UI design'
+                            className='text-white text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4' type="text" placeholder='Make a UI design'
                         />
                     </div>
                     <div>
@@ -62,7 +62,7 @@ const CreateTask = () => {
                             onChange={(e) => {
                                 setTaskDate(e.target.value)
                             }}
-                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4' type="date" />
+                            className='text-white text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4' type="date" />
                     </div>
                     <div>
                         <h3 className='text-sm text-gray-300 mb-0.5'>Asign to</h3>
@@ -71,7 +71,7 @@ const CreateTask = () => {
                             onChange={(e) => {
                                 setAsignTo(e.target.value)
                             }}
-                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4' type="text" placeholder='employee name' />
+                            className='text-white text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4' type="text" placeholder='employee name' />
                     </div>
                     <div>
                         <h3 className='text-sm text-gray-300 mb-0.5'>Category</h3>
@@ -80,7 +80,7 @@ const CreateTask = () => {
                             onChange={(e) => {
                                 setCategory(e.target.value)
                             }}
-                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4' type="text" placeholder='design, dev, etc' />
+                            className='text-white text-sm py-1 px-2 w-4/5 rounded outline-none  bg-transparent border-[1px] border-gray-400 mb-4' type="text" placeholder='design, dev, etc' />
                     </div>
                 </div>
 
