@@ -10,13 +10,15 @@ const App = () => {
   const [loggedInUserData, setLoggedInUserData] = useState(null)
 
   useEffect(() => {
-    // Ensure localStorage is initialized
-    setLocalStorage();
-    const loggedInUser = localStorage.getItem('loggedInUser')
+    // Only initialize if not already set
+    if (!localStorage.getItem('employees') || !localStorage.getItem('admin')) {
+      setLocalStorage();
+    }
+    const loggedInUser = localStorage.getItem('loggedInUser');
     if (loggedInUser) {
-      const userObj = JSON.parse(loggedInUser)
-      setUser(userObj.role)
-      setLoggedInUserData(userObj.data || null)
+      const userObj = JSON.parse(loggedInUser);
+      setUser(userObj.role);
+      setLoggedInUserData(userObj.data || null);
     }
   }, [])
 
