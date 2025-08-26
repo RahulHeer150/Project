@@ -1,19 +1,29 @@
 import React from 'react'
+import AcceptTask from './AcceptTask'
+import NewTask from './NewTask'
+import CompleteTask from './CompleteTask'
+import FailedTask from './FailedTask'
 
-const TaskList = () => {
-  return (
-    <div id='tasklist' className='h-[55%] items-center justify-start gap-5 flex flex-nowrap w-full bg-sky-500 mt-10 py-5 overflow-x-auto'>
-        <div className='h-full flex-shrink-0  w-[300px] bg-emerald-400 rounded-xl mx-5 p-5'>
-            <div className='flex justify-between items-center'>
-                <h3 className='bg-red-600 px-3 py-1 rounded-md'>High</h3>
-                <h4 className=''>20 Feb 2025</h4>
-            </div>
-        <h2 className='mt-5 text-xl font-semibold'>Make a Youtube Clone!</h2>
-        <p className='mt-2 text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda nam sed aliquid, voluptatibus ipsa odit.</p>
+const TaskList = ({ data }) => {
+    return (
+        <div id='tasklist' className='h-[50%] overflow-x-auto flex items-center justify-start gap-5 flex-nowrap w-full py-1 mt-16'>
+            {data.tasks.map((elem, idx) => {
+                if (elem.active) {
+                    return <AcceptTask key={idx} data={elem} />
+                }
+                if (elem.newTask) {
+                    return <NewTask key={idx} data={elem} />
+                }
+                if (elem.completed) {
+                    return <CompleteTask key={idx} data={elem} />
+                }
+                if (elem.failed) {
+                    return <FailedTask key={idx} data={elem} />
+                }
+
+            })}
         </div>
-
-    </div>
-  )
+    )
 }
 
 export default TaskList
